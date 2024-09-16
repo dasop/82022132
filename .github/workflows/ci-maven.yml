@@ -3,7 +3,7 @@ name: Java CI with Maven
 on: workflow_dispatch
 
 env:
-  IMAGE_NAME: cloud-sample
+  IMAGE_NAME: 82022132
 
 jobs:
   build:
@@ -35,8 +35,8 @@ jobs:
       uses: azure/docker-login@v1
       with:
         login-server: ${{ secrets.BASEACR_LOGIN_SERVER }}
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
+        username: ${{ secrets.BASEACR_REGISTRY_USERNAME }}
+        password: ${{ secrets.BASEACR_REGISTRY_PASSWORD }}
 
     - name: 'Build & Tag Image'
       run: |
@@ -47,8 +47,8 @@ jobs:
       uses: azure/docker-login@v1
       with:
         login-server: ${{ secrets.STAPACR_LOGIN_SERVER }}
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
+        username: ${{ secrets.STAPACR_REGISTRY_USERNAME }}
+        password: ${{ secrets.STAPACR_REGISTRY_PASSWORD }}
     
     - run: |
           docker push ${{ secrets.STAPACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:${{ steps.gen-version.outputs.VERSION }}
@@ -62,7 +62,7 @@ jobs:
     - name: Commit files
       run: |
           cd manifests
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "github-actions"
+          git config --global user.email "jyoung.baek@googlemail.com"
+          git config --global user.name "dasop"
           git commit -am "Update image tag"
           git push -u origin main
