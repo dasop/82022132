@@ -32,7 +32,7 @@ jobs:
         echo "::set-output name=VERSION::`date +%Y%m%d%H%M`"
         
     - name: 'ACR login'
-      uses: azure/docker-login@v1
+      uses: azure/docker-login@v2
       with:
         login-server: ${{ secrets.BASEACR_LOGIN_SERVER }}
         username: ${{ secrets.BASEACR_REGISTRY_USERNAME }}
