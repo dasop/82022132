@@ -65,7 +65,4 @@ jobs:
           echo "`ls`"
           git config --global user.email "github-actions@github.com"
           git config --global user.name "github-actions"
-          git add -A
-          git commit -am "Update image tag"
-          git pull
-          git push
+          git push -f origin main
