@@ -3,7 +3,9 @@ kind: Service
 metadata:
     name: my-82022132
 spec:
+    type: ClusterIP
     ports:
-    - port: 8080 
+    - port: 8080
+      targetPort: 8080
     selector:
         app: 82022132
