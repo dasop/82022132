@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://cepg-aa-std-db.postgres.database.azure.com:5432/cloud-sample
-    username: ktds
-    password: ktds!1234
+    url: jdbc:postgresql://cepg-aa-std-db.postgres.database.azure.com:5432/postgres
+    username: cepgdb
+    password: beDa5206!
     hikari:
       maximum-pool-size: 2
       minimum-idle: 2
